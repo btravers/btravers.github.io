@@ -1,0 +1,13 @@
+# Site settings
+title: Benoit TRAVERS
+email: benoit.travers.fr@gmail.com
+description: Listing of btravers' projects.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://btravers.github.io" # the base hostname & protocol for your site
+twitter_username: btravers
+github_username:  btravers
+
+# Build settings
+markdown: kramdown
+collections:
+  - projects

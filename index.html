@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Projects</h1>
+
+  <ul class="project-list">
+    {% for project in site.projects %}
+      <li>
+        <h2 class="project-link">{{ project.title }}</h2>
+        {{ project.content }}
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
