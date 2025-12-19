@@ -4,7 +4,6 @@ layout: home
 hero:
   name: "Benoit TRAVERS"
   text: "Welcome to my personal website"
-  tagline: Built with VitePress
   actions:
     - theme: brand
       text: About Me
