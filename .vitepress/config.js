@@ -1,22 +1,20 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: "btravers",
+  title: "Benoit TRAVERS",
   description: "Personal website",
   base: '/',
   themeConfig: {
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'About', link: '/about' },
-      { text: 'Projects', link: '/projects' },
-      { text: 'Contact', link: '/contact' }
+      { text: 'Home', link: '/' }
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/btravers' }
+      { icon: 'github', link: 'https://github.com/btravers' },
+      { icon: 'linkedin', link: 'https://linkedin.com/in/btraversfr' }
     ],
     footer: {
       message: 'Built with VitePress',
-      copyright: 'Copyright © 2024 btravers'
+      copyright: `Copyright © ${new Date().getFullYear()} btravers`
     }
   }
 })
