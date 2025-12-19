@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "btravers"
+  name: "Benoit TRAVERS"
   text: "Welcome to my personal website"
   tagline: Built with VitePress
   actions:
@@ -13,17 +13,17 @@ hero:
       text: View Projects
       link: /projects
 
-features:
-  - icon: 🚀
-    title: Fast & Modern
-    details: Built with VitePress, powered by Vite and Vue 3 for optimal performance
-  - icon: 📝
-    title: Content Focused
-    details: Clean and simple design that puts content first
-  - icon: 🎨
-    title: Customizable
-    details: Easy to customize and extend with Vue components
 ---
+
+## About Me
+
+Software engineer passionate about building reliable and scalable systems. I specialize in architecture, backend development, and creating elegant solutions to complex problems.
+
+## What I Do
+
+- 🏗️ **Architecture**: Designing distributed systems and microservices
+- ⚙️ **Backend Development**: Building robust APIs and services
+- 🌐 **Frontend Development**: Creating user-friendly web applications
 
 ## Recent Updates
 

@@ -14,9 +14,9 @@ This is a personal website built with VitePress, a static site generator powered
 
 ## Skills
 
-- Frontend Development
+- Architecture
 - Backend Development
-- DevOps
+- Frontend Development
 
 ---
 
