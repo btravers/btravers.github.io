@@ -1,0 +1,18 @@
+{
+  "name": "btravers.github.io",
+  "version": "1.0.0",
+  "description": "Personal website built with VitePress",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "keywords": ["vitepress", "personal-website"],
+  "author": "btravers",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.26"
+  }
+}
