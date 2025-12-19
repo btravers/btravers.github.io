@@ -1,6 +1,6 @@
 # About Me
 
-Welcome! I'm btravers.
+Welcome! I'm Benoit Travers.
 
 ## Background
 
