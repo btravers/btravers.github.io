@@ -4,24 +4,23 @@ Here are some of the projects I've worked on:
 
 ## Featured Projects
 
-### Project 1
-A description of your first project. Add links, technologies used, and key features.
+### amqp-contract
 
-**Technologies:** VitePress, Vue.js, Markdown
+Contract testing for AMQP-based message queues. This project provides tools and patterns for testing message-driven architectures.
 
----
+**Repository:** [github.com/btravers/amqp-contract](https://github.com/btravers/amqp-contract)
 
-### Project 2
-A description of your second project.
-
-**Technologies:** JavaScript, Node.js
+**Technologies:** AMQP, Message Queues, Contract Testing
 
 ---
 
-### Project 3
-A description of your third project.
+### temporal-contract
 
-**Technologies:** Python, FastAPI
+Contract testing framework for Temporal workflows. Ensures reliable workflow definitions and integrations.
+
+**Repository:** [github.com/btravers/temporal-contract](https://github.com/btravers/temporal-contract)
+
+**Technologies:** Temporal, Workflow Testing, Contract Testing
 
 ---
 

@@ -7,7 +7,7 @@ My personal website built with VitePress.
 ### Prerequisites
 
 - Node.js (v18 or higher recommended)
-- npm or yarn
+- pnpm (v9 or higher)
 
 ### Installation
 
@@ -17,7 +17,7 @@ git clone https://github.com/btravers/btravers.github.io.git
 cd btravers.github.io
 
 # Install dependencies
-npm install
+pnpm install
 ```
 
 ### Development
@@ -25,7 +25,7 @@ npm install
 Run the development server:
 
 ```bash
-npm run docs:dev
+pnpm run docs:dev
 ```
 
 The site will be available at `http://localhost:5173`
@@ -35,7 +35,7 @@ The site will be available at `http://localhost:5173`
 Build the site for production:
 
 ```bash
-npm run docs:build
+pnpm run docs:build
 ```
 
 The built files will be in `.vitepress/dist`
@@ -45,21 +45,31 @@ The built files will be in `.vitepress/dist`
 Preview the production build locally:
 
 ```bash
-npm run docs:preview
+pnpm run docs:preview
 ```
+
+## 🚀 Deployment
+
+The site is automatically deployed to GitHub Pages when changes are pushed to the `main` branch. The deployment workflow is configured in `.github/workflows/deploy.yml`.
+
+To manually trigger a deployment, go to the Actions tab in the GitHub repository and run the "Deploy VitePress site to GitHub Pages" workflow.
 
 ## 📁 Project Structure
 
 ```
 .
-├── .vitepress/          # VitePress configuration
-│   └── config.js        # Site configuration
-├── index.md             # Homepage
-├── about.md             # About page
-├── projects.md          # Projects page
-├── contact.md           # Contact page
-├── package.json         # Dependencies and scripts
-└── README.md            # This file
+├── .github/
+│   └── workflows/
+│       └── deploy.yml    # GitHub Actions deployment workflow
+├── .vitepress/           # VitePress configuration
+│   └── config.js         # Site configuration
+├── index.md              # Homepage
+├── about.md              # About page
+├── projects.md           # Projects page
+├── contact.md            # Contact page
+├── package.json          # Dependencies and scripts
+├── pnpm-workspace.yaml   # pnpm workspace and catalog configuration
+└── README.md             # This file
 ```
 
 ## 🛠️ Technology Stack

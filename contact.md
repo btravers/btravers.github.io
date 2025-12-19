@@ -5,12 +5,12 @@ Get in touch with me through the following channels:
 ## Social Media
 
 - **GitHub:** [github.com/btravers](https://github.com/btravers)
-- **Twitter:** [@yourusername](https://twitter.com/yourusername) _(Update with your actual handle)_
-- **LinkedIn:** [Your Profile](https://linkedin.com/in/yourprofile) _(Update with your actual profile)_
+- **Twitter:** <a href="https://x.com/Benoit_Travers">@Benoit_Travers</a>
+- **LinkedIn:** <a href="https://linkedin.com/in/btraversfr">btraversfr</a>
 
 ## Email
 
-Feel free to reach out via email at: **your.email@example.com** _(Update with your actual email)_
+Feel free to reach out via email at: **benoit.travers.fr@gmail.com**
 
 ---
 
