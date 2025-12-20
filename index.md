@@ -4,6 +4,9 @@ layout: home
 hero:
   name: "Benoit TRAVERS"
   text: "Software engineer"
+  image:
+    src: /logo.svg
+    alt: Benoit TRAVERS Logo
   actions:
     - theme: brand
       text: Contact Me
