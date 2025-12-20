@@ -113,7 +113,7 @@
 }
 
 /* Better spacing for content sections */
-.vp-doc > div > div {
+.vp-doc {
   max-width: 800px;
 }
 
