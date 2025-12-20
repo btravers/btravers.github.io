@@ -39,10 +39,10 @@ Software engineer passionate about building reliable and scalable systems. I spe
 
 ### Backend Development
 - **Languages:** Java, Kotlin, TypeScript/Node.js
-- **Frameworks:** Spring Framework, Nestjs
+- **Frameworks:** Spring Framework, NestJS
 - **Message Queues:** AMQP/RabbitMQ, Kafka
-- **Databases:** Postgres, Elasticsearch, Mongodb
-- **Workflows:** Temporalio
+- **Databases:** Postgres, Elasticsearch, MongoDB
+- **Workflows:** Temporal
 
 ### Frontend Development
 - **Languages:** TypeScript
