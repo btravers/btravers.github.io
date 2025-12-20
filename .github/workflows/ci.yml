@@ -22,7 +22,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Check format
-        run: pnpm run format
+        run: pnpm exec oxlint
 
       - name: Check package.json sorting
         run: pnpm run sort
