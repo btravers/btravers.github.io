@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "Benoit TRAVERS"
-  text: "software engineer"
+  text: "Software engineer"
   actions:
     - theme: brand
       text: Contact Me
