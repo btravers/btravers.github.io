@@ -41,7 +41,7 @@ Software engineer passionate about building reliable and scalable systems. I spe
 - **Languages:** Java, Kotlin, TypeScript/Node.js
 - **Frameworks:** Spring Framework, NestJS
 - **Message Queues:** AMQP/RabbitMQ, Kafka
-- **Databases:** Postgres, Elasticsearch, MongoDB
+- **Databases:** PostgreSQL, Elasticsearch, MongoDB
 - **Workflows:** Temporal
 
 ### Frontend Development
@@ -51,10 +51,10 @@ Software engineer passionate about building reliable and scalable systems. I spe
 ### DevOps & Cloud
 - **Containerization:** Docker
 - **Cloud Platforms:** AWS
-- **CI/CD:** GitHub Actions, Gitlab CI/CD
+- **CI/CD:** GitHub Actions, GitLab CI/CD
 
 ### Tools & Practices
-- **Version Control:** Git, GitHub, Gitlab
+- **Version Control:** Git, GitHub, GitLab
 - **Testing:** Vitest, Jest, Playwright, Testcontainers
 - **Authentication:** OAuth2/OIDC, Keycloak, Okta
 - **Architecture:** Microservices, Distributed Systems
