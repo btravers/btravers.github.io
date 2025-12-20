@@ -18,6 +18,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "devDependencies": {
+    "@types/node": "catalog:",
     "oxlint": "catalog:",
     "sort-package-json": "catalog:",
     "typescript": "catalog:",
