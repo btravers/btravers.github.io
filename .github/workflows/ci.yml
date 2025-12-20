@@ -25,7 +25,7 @@ jobs:
         run: pnpm exec oxlint
 
       - name: Check package.json sorting
-        run: pnpm run sort
+        run: pnpm run sort -- --check
 
   type-check:
     name: Type Check
