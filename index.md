@@ -92,11 +92,11 @@ Working as an **architect** at Emeria Technologies, the company that develops so
 Worked at Zenika, an international consulting company known for organizational and technical innovation. Contributed to diverse software solutions across various sectors including fintech, energy, and business management.
 
 **Key Responsibilities:**
-- 🏗️ Designing and implementing distributed systems and microservices
-- 🔧 Building robust APIs and services with modern backend technologies
-- 💻 Developing user-friendly web applications
-- 👥 Code reviewing and mentoring team members
-- ☁️ Contributing to scalable and secure cloud applications
+- 🏗️ Architecting and delivering distributed systems and microservices for multiple clients
+- 🔧 Implementing and integrating robust APIs and backend services within existing client ecosystems
+- 💻 Developing and refining user-facing web applications in collaboration with product teams
+- 👥 Performing code reviews, facilitating technical workshops, and mentoring team members
+- ☁️ Designing, hardening, and operating cloud-native solutions with a focus on scalability and security
 
 **Key Achievements:**
 - 🚀 Led multiple successful client projects in various domains
