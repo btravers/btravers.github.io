@@ -1,27 +1,25 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 
 export default defineConfig({
   title: "Benoit TRAVERS",
   description: "Personal website",
-  base: '/',
+  base: "/",
 
   themeConfig: {
-    logo: '/logo.svg',
+    logo: "/logo.svg",
 
-    nav: [
-      { text: 'Home', link: '/' }
-    ],
-    
+    nav: [{ text: "Home", link: "/" }],
+
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/btravers' },
-      { icon: 'linkedin', link: 'https://linkedin.com/in/btraversfr' }
+      { icon: "github", link: "https://github.com/btravers" },
+      { icon: "linkedin", link: "https://linkedin.com/in/btraversfr" },
     ],
-    
+
     footer: {
-      message: 'Built with VitePress',
-      copyright: `Copyright © ${new Date().getFullYear()} btravers`
-    }
+      message: "Built with VitePress",
+      copyright: `Copyright © ${new Date().getFullYear()} btravers`,
+    },
   },
 
   head: [["link", { rel: "icon", type: "image/svg+xml", href: "/logo.svg" }]],
-})
+});

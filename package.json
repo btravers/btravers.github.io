@@ -2,22 +2,31 @@
   "name": "btravers.github.io",
   "private": true,
   "description": "Personal website built with VitePress",
+  "keywords": [
+    "vitepress",
+    "personal-website"
+  ],
+  "license": "MIT",
+  "author": "btravers",
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
+    "docs:dev": "vitepress dev",
     "docs:preview": "vitepress preview",
-    "format": "oxlint --fix",
-    "sort": "sort-package-json"
+    "format": "oxfmt .",
+    "lint": "oxlint .",
+    "sort": "sort-package-json",
+    "type-check": "vue-tsc --noEmit"
   },
-  "keywords": ["vitepress", "personal-website"],
-  "author": "btravers",
-  "license": "MIT",
-  "packageManager": "pnpm@10.26.1",
   "devDependencies": {
+    "@types/node": "catalog:",
+    "oxfmt": "catalog:",
     "oxlint": "catalog:",
     "sort-package-json": "catalog:",
+    "typescript": "catalog:",
     "vitepress": "catalog:",
-    "vue": "catalog:"
-  }
+    "vue": "catalog:",
+    "vue-tsc": "catalog:"
+  },
+  "packageManager": "pnpm@10.26.1"
 }

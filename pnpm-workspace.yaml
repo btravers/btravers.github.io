@@ -1,8 +1,12 @@
 packages:
-  - '.'
+  - "."
 
 catalog:
   vitepress: 1.6.4
   vue: 3.5.26
   sort-package-json: 3.6.0
+  oxfmt: 0.19.0
   oxlint: 1.34.0
+  typescript: 5.7.3
+  vue-tsc: 2.2.0
+  "@types/node": 22.10.5
