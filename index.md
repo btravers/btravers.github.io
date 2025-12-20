@@ -35,30 +35,6 @@ Software engineer passionate about building reliable and scalable systems. I spe
 
 ---
 
-## Experience
-
-### Freelance Software Developer
-
-I am a freelance software developer specializing in architecture and backend development.
-
-**Current Client: Emeria Technologies**
-
-Working as an architect at Emeria Technologies, the company that develops software for Foncia, a leading French real estate management company.
-
-**Key Responsibilities:**
-- Designing and implementing distributed systems and microservices
-- Building robust APIs and services with modern backend technologies
-- Developing user-friendly web applications
-- Code reviewing and mentoring team members
-- Contributing to scalable and secure cloud applications
-
-**Notable Contributions:**
-- Developed open-source tools for contract testing in message-driven architectures
-- Created solutions for workflow testing and validation
-- Built practical tools for software development and testing
-
----
-
 ## Skills
 
 ### Backend Development
@@ -82,6 +58,30 @@ Working as an architect at Emeria Technologies, the company that develops softwa
 - **Testing:** Vitest, Jest, Playwright, Testcontainers
 - **Authentication:** OAuth2/OIDC, Keycloak, Okta
 - **Architecture:** Microservices, Distributed Systems
+
+---
+
+## Experience
+
+### Freelance Software Developer
+
+I am a freelance software developer specializing in architecture and backend development.
+
+**Current Client: Emeria Technologies**
+
+Working as an architect at Emeria Technologies, the company that develops software for Foncia, a leading French real estate management company.
+
+**Key Responsibilities:**
+- Designing and implementing distributed systems and microservices
+- Building robust APIs and services with modern backend technologies
+- Developing user-friendly web applications
+- Code reviewing and mentoring team members
+- Contributing to scalable and secure cloud applications
+
+**Notable Contributions:**
+- Developed open-source tools for contract testing in message-driven architectures
+- Created solutions for workflow testing and validation
+- Built practical tools for software development and testing
 
 ---
 
