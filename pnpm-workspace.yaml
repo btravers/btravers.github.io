@@ -1,0 +1,8 @@
+packages:
+  - '.'
+
+catalog:
+  vitepress: 1.6.4
+  vue: 3.5.26
+  sort-package-json: 3.6.0
+  oxlint: 0.16.1
