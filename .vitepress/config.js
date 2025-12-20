@@ -5,6 +5,7 @@ export default defineConfig({
   description: "Personal website",
   base: '/',
   themeConfig: {
+    logo: '/logo.svg',
     nav: [
       { text: 'Home', link: '/' }
     ],
