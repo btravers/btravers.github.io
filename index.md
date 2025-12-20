@@ -78,6 +78,7 @@ Get in touch with me through the following channels:
 Feel free to reach out via email at: **benoit.travers.fr@gmail.com**
 
 I'm always interested in:
+
 - Collaborating on open source projects
 - Discussing web development and technology
 - Networking with fellow developers

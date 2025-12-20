@@ -13,12 +13,14 @@
     "docs:build": "vitepress build",
     "docs:dev": "vitepress dev",
     "docs:preview": "vitepress preview",
-    "format": "oxlint --fix",
+    "format": "oxfmt .",
+    "lint": "oxlint .",
     "sort": "sort-package-json",
     "type-check": "vue-tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "catalog:",
+    "oxfmt": "catalog:",
     "oxlint": "catalog:",
     "sort-package-json": "catalog:",
     "typescript": "catalog:",
