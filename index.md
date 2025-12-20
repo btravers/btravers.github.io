@@ -37,9 +37,13 @@ Software engineer passionate about building reliable and scalable systems. I spe
 
 ## Experience
 
-### Software Engineer at Zenika
+### Freelance Software Developer
 
-Working at Zenika, an international consulting company known for organizational and technical innovation. Contributing to diverse software solutions across various sectors including fintech, energy, and business management.
+I am a freelance software developer specializing in architecture and backend development.
+
+**Current Client: Emeria Technologies**
+
+Working as an architect at Emeria Technologies, the company that develops software for Foncia, a leading French real estate management company.
 
 **Key Responsibilities:**
 - Designing and implementing distributed systems and microservices
@@ -58,25 +62,25 @@ Working at Zenika, an international consulting company known for organizational 
 ## Skills
 
 ### Backend Development
-- **Languages:** Java, Kotlin, TypeScript/JavaScript
-- **Frameworks:** Spring Framework
-- **Message Queues:** AMQP, RabbitMQ
-- **Workflows:** Temporal
+- **Languages:** Java, Kotlin, TypeScript/Node.js
+- **Frameworks:** Spring Framework, Nestjs
+- **Message Queues:** AMQP/RabbitMQ, Kafka
+- **Databases:** Postgres, Elasticsearch, Mongodb
+- **Workflows:** Temporalio
 
 ### Frontend Development
-- **Languages:** TypeScript/JavaScript
+- **Languages:** TypeScript
 - **Frameworks:** React, Vue.js
-- **Build Tools:** Vite, Next.js
 
 ### DevOps & Cloud
 - **Containerization:** Docker
 - **Cloud Platforms:** AWS
-- **CI/CD:** GitHub Actions
+- **CI/CD:** GitHub Actions, Gitlab CI/CD
 
 ### Tools & Practices
-- **Version Control:** Git, GitHub
-- **Testing:** Jest, Contract Testing
-- **Authentication:** JWT
+- **Version Control:** Git, GitHub, Gitlab
+- **Testing:** Vitest, Jest, Playwright, Testcontainers
+- **Authentication:** OAuth2/OIDC, Keycloak, Okta
 - **Architecture:** Microservices, Distributed Systems
 
 ---
