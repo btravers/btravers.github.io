@@ -13,7 +13,7 @@ hero:
       link: "#contact"
     - theme: alt
       text: View Projects
-      link: "#projects"
+      link: "/projects"
 
 ---
 
@@ -35,31 +35,49 @@ Software engineer passionate about building reliable and scalable systems. I spe
 
 ---
 
-## Projects
+## Experience
 
-Here are some of the projects I've worked on:
+### Software Engineer at Zenika
 
-### amqp-contract
+Working at Zenika, an international consulting company known for organizational and technical innovation. Contributing to diverse software solutions across various sectors including fintech, energy, and business management.
 
-Contract testing for AMQP-based message queues. This project provides tools and patterns for testing message-driven architectures.
+**Key Responsibilities:**
+- Designing and implementing distributed systems and microservices
+- Building robust APIs and services with modern backend technologies
+- Developing user-friendly web applications
+- Code reviewing and mentoring team members
+- Contributing to scalable and secure cloud applications
 
-**Repository:** [github.com/btravers/amqp-contract](https://github.com/btravers/amqp-contract)
+**Notable Contributions:**
+- Developed open-source tools for contract testing in message-driven architectures
+- Created solutions for workflow testing and validation
+- Built practical tools for software development and testing
 
-**Website:** [btravers.github.io/amqp-contract](https://btravers.github.io/amqp-contract/)
+---
 
-**Technologies:** AMQP, Message Queues, Contract Testing
+## Skills
 
-### temporal-contract
+### Backend Development
+- **Languages:** Java, Kotlin, TypeScript/JavaScript
+- **Frameworks:** Spring Framework
+- **Message Queues:** AMQP, RabbitMQ
+- **Workflows:** Temporal
 
-Contract testing framework for Temporal workflows. Ensures reliable workflow definitions and integrations.
+### Frontend Development
+- **Languages:** TypeScript/JavaScript
+- **Frameworks:** React, Vue.js
+- **Build Tools:** Vite, Next.js
 
-**Repository:** [github.com/btravers/temporal-contract](https://github.com/btravers/temporal-contract)
+### DevOps & Cloud
+- **Containerization:** Docker
+- **Cloud Platforms:** AWS
+- **CI/CD:** GitHub Actions
 
-**Website:** [btravers.github.io/temporal-contract](https://btravers.github.io/temporal-contract/)
-
-**Technologies:** Temporal, Workflow Testing, Contract Testing
-
-Check out my [GitHub profile](https://github.com/btravers) for more projects and contributions.
+### Tools & Practices
+- **Version Control:** Git, GitHub
+- **Testing:** Jest, Contract Testing
+- **Authentication:** JWT
+- **Architecture:** Microservices, Distributed Systems
 
 ---
 

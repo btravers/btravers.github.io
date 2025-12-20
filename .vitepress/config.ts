@@ -8,7 +8,10 @@ export default defineConfig({
   themeConfig: {
     logo: "/logo.svg",
 
-    nav: [{ text: "Home", link: "/" }],
+    nav: [
+      { text: "Home", link: "/" },
+      { text: "Projects", link: "/projects" },
+    ],
 
     socialLinks: [
       { icon: "github", link: "https://github.com/btravers" },
