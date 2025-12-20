@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    oxlint:
+      specifier: 1.34.0
+      version: 1.34.0
     sort-package-json:
       specifier: 3.6.0
       version: 3.6.0
@@ -21,7 +24,7 @@ importers:
   .:
     devDependencies:
       oxlint:
-        specifier: 1.34.0
+        specifier: 'catalog:'
         version: 1.34.0
       sort-package-json:
         specifier: 'catalog:'
