@@ -42,6 +42,8 @@ Contract testing for AMQP-based message queues. This project provides tools and 
 
 **Repository:** [github.com/btravers/amqp-contract](https://github.com/btravers/amqp-contract)
 
+**Website:** [btravers.github.io/amqp-contract](https://btravers.github.io/amqp-contract/)
+
 **Technologies:** AMQP, Message Queues, Contract Testing
 
 ### temporal-contract
@@ -49,6 +51,8 @@ Contract testing for AMQP-based message queues. This project provides tools and 
 Contract testing framework for Temporal workflows. Ensures reliable workflow definitions and integrations.
 
 **Repository:** [github.com/btravers/temporal-contract](https://github.com/btravers/temporal-contract)
+
+**Website:** [btravers.github.io/temporal-contract](https://btravers.github.io/temporal-contract/)
 
 **Technologies:** Temporal, Workflow Testing, Contract Testing
 
