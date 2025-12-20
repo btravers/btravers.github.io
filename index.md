@@ -38,6 +38,7 @@ Software engineer passionate about building reliable and scalable systems. I spe
 ## Skills
 
 ### Backend Development
+
 - **Languages:** Java, Kotlin, TypeScript/Node.js
 - **Frameworks:** Spring Framework, NestJS
 - **Message Queues:** AMQP/RabbitMQ, Kafka
@@ -45,15 +46,18 @@ Software engineer passionate about building reliable and scalable systems. I spe
 - **Workflows:** Temporal
 
 ### Frontend Development
+
 - **Languages:** TypeScript
 - **Frameworks:** React, Vue.js
 
 ### DevOps & Cloud
+
 - **Containerization:** Docker
 - **Cloud Platforms:** AWS
 - **CI/CD:** GitHub Actions, GitLab CI/CD
 
 ### Tools & Practices
+
 - **Version Control:** Git, GitHub, GitLab
 - **Testing:** Vitest, Jest, Playwright, Testcontainers
 - **Authentication:** OAuth2/OIDC, Keycloak, Okta
@@ -72,6 +76,7 @@ Software engineer passionate about building reliable and scalable systems. I spe
 Working as an **architect** at Emeria Technologies, the company that develops software for Foncia, a leading French real estate management company.
 
 **Key Responsibilities:**
+
 - 🏗️ Designing and implementing distributed systems and microservices
 - 🔧 Building robust APIs and services with modern backend technologies
 - 💻 Developing user-friendly web applications
@@ -79,6 +84,7 @@ Working as an **architect** at Emeria Technologies, the company that develops so
 - ☁️ Contributing to scalable and secure cloud applications
 
 **Notable Contributions:**
+
 - ✨ Developed open-source tools for contract testing in message-driven architectures
 - 🔄 Created solutions for workflow testing and validation
 - 🛠️ Built practical tools for software development and testing
@@ -92,6 +98,7 @@ Working as an **architect** at Emeria Technologies, the company that develops so
 Worked at Zenika, an international consulting company known for organizational and technical innovation. Contributed to diverse software solutions across various sectors including fintech, energy, and business management.
 
 **Key Responsibilities:**
+
 - 🏗️ Architecting and delivering distributed systems and microservices for multiple clients
 - 🔧 Implementing and integrating robust APIs and backend services within existing client ecosystems
 - 💻 Developing and refining user-facing web applications in collaboration with product teams
@@ -99,6 +106,7 @@ Worked at Zenika, an international consulting company known for organizational a
 - ☁️ Designing, hardening, and operating cloud-native solutions with a focus on scalability and security
 
 **Key Achievements:**
+
 - 🚀 Led multiple successful client projects in various domains
 - 📚 Contributed to internal knowledge sharing and best practices
 - 🤝 Mentored junior developers and participated in technical interviews
