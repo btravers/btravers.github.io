@@ -61,27 +61,47 @@ Software engineer passionate about building reliable and scalable systems. I spe
 
 ---
 
-## Experience
+## Experiences
 
-### Freelance Software Developer
+### 💼 Freelance Software Developer
 
-I am a freelance software developer specializing in architecture and backend development.
+**Current** · Specializing in architecture and backend development
 
-**Current Client: Emeria Technologies**
+#### Current Client: Emeria Technologies
 
-Working as an architect at Emeria Technologies, the company that develops software for Foncia, a leading French real estate management company.
+Working as an **architect** at Emeria Technologies, the company that develops software for Foncia, a leading French real estate management company.
 
 **Key Responsibilities:**
-- Designing and implementing distributed systems and microservices
-- Building robust APIs and services with modern backend technologies
-- Developing user-friendly web applications
-- Code reviewing and mentoring team members
-- Contributing to scalable and secure cloud applications
+- 🏗️ Designing and implementing distributed systems and microservices
+- 🔧 Building robust APIs and services with modern backend technologies
+- 💻 Developing user-friendly web applications
+- 👥 Code reviewing and mentoring team members
+- ☁️ Contributing to scalable and secure cloud applications
 
 **Notable Contributions:**
-- Developed open-source tools for contract testing in message-driven architectures
-- Created solutions for workflow testing and validation
-- Built practical tools for software development and testing
+- ✨ Developed open-source tools for contract testing in message-driven architectures
+- 🔄 Created solutions for workflow testing and validation
+- 🛠️ Built practical tools for software development and testing
+
+---
+
+### 🏢 Software Engineer at Zenika
+
+**2018 - 2023** · Rennes, France
+
+Worked at Zenika, an international consulting company known for organizational and technical innovation. Contributed to diverse software solutions across various sectors including fintech, energy, and business management.
+
+**Key Responsibilities:**
+- 🏗️ Designing and implementing distributed systems and microservices
+- 🔧 Building robust APIs and services with modern backend technologies
+- 💻 Developing user-friendly web applications
+- 👥 Code reviewing and mentoring team members
+- ☁️ Contributing to scalable and secure cloud applications
+
+**Key Achievements:**
+- 🚀 Led multiple successful client projects in various domains
+- 📚 Contributed to internal knowledge sharing and best practices
+- 🤝 Mentored junior developers and participated in technical interviews
 
 ---
 
