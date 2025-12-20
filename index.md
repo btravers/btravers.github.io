@@ -13,7 +13,7 @@ hero:
       link: "#contact"
     - theme: alt
       text: View Projects
-      link: "#projects"
+      link: "/projects"
 
 ---
 
@@ -35,31 +35,81 @@ Software engineer passionate about building reliable and scalable systems. I spe
 
 ---
 
-## Projects
+## Skills
 
-Here are some of the projects I've worked on:
+### Backend Development
 
-### amqp-contract
+- **Languages:** Java, Kotlin, TypeScript/Node.js
+- **Frameworks:** Spring Framework, NestJS
+- **Message Queues:** AMQP/RabbitMQ, Kafka
+- **Databases:** PostgreSQL, Elasticsearch, MongoDB
+- **Workflows:** Temporal
 
-Contract testing for AMQP-based message queues. This project provides tools and patterns for testing message-driven architectures.
+### Frontend Development
 
-**Repository:** [github.com/btravers/amqp-contract](https://github.com/btravers/amqp-contract)
+- **Languages:** TypeScript
+- **Frameworks:** React, Vue.js
 
-**Website:** [btravers.github.io/amqp-contract](https://btravers.github.io/amqp-contract/)
+### DevOps & Cloud
 
-**Technologies:** AMQP, Message Queues, Contract Testing
+- **Containerization:** Docker
+- **Cloud Platforms:** AWS
+- **CI/CD:** GitHub Actions, GitLab CI/CD
 
-### temporal-contract
+### Tools & Practices
 
-Contract testing framework for Temporal workflows. Ensures reliable workflow definitions and integrations.
+- **Version Control:** Git, GitHub, GitLab
+- **Testing:** Vitest, Jest, Playwright, Testcontainers
+- **Authentication:** OAuth2/OIDC, Keycloak, Okta
+- **Architecture:** Microservices, Distributed Systems
 
-**Repository:** [github.com/btravers/temporal-contract](https://github.com/btravers/temporal-contract)
+---
 
-**Website:** [btravers.github.io/temporal-contract](https://btravers.github.io/temporal-contract/)
+## Experiences
 
-**Technologies:** Temporal, Workflow Testing, Contract Testing
+### 💼 Freelance Software Developer
 
-Check out my [GitHub profile](https://github.com/btravers) for more projects and contributions.
+**Current** · Specializing in architecture and backend development
+
+#### Current Client: Emeria Technologies
+
+Working as an **architect** at Emeria Technologies, the company that develops software for Foncia, a leading French real estate management company.
+
+**Key Responsibilities:**
+
+- 🏗️ Designing and implementing distributed systems and microservices
+- 🔧 Building robust APIs and services with modern backend technologies
+- 💻 Developing user-friendly web applications
+- 👥 Code reviewing and mentoring team members
+- ☁️ Contributing to scalable and secure cloud applications
+
+**Notable Contributions:**
+
+- ✨ Developed open-source tools for contract testing in message-driven architectures
+- 🔄 Created solutions for workflow testing and validation
+- 🛠️ Built practical tools for software development and testing
+
+---
+
+### 🏢 Software Engineer at Zenika
+
+**2018 - 2023** · Rennes, France
+
+Worked at Zenika, an international consulting company known for organizational and technical innovation. Contributed to diverse software solutions across various sectors including fintech, energy, and business management.
+
+**Key Responsibilities:**
+
+- 🏗️ Architecting and delivering distributed systems and microservices for multiple clients
+- 🔧 Implementing and integrating robust APIs and backend services within existing client ecosystems
+- 💻 Developing and refining user-facing web applications in collaboration with product teams
+- 👥 Performing code reviews, facilitating technical workshops, and mentoring team members
+- ☁️ Designing, hardening, and operating cloud-native solutions with a focus on scalability and security
+
+**Key Achievements:**
+
+- 🚀 Led multiple successful client projects in various domains
+- 📚 Contributed to internal knowledge sharing and best practices
+- 🤝 Mentored junior developers and participated in technical interviews
 
 ---
 

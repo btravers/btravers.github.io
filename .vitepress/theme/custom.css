@@ -68,3 +68,63 @@
     --vp-home-hero-image-filter: blur(68px);
   }
 }
+
+/**
+ * Custom Enhancements
+ * -------------------------------------------------------------------------- */
+
+/* Add subtle animations and better spacing */
+.vp-doc h2 {
+  margin-top: 48px;
+  border-bottom: 2px solid var(--vp-c-brand-1);
+  padding-bottom: 8px;
+}
+
+.vp-doc h3 {
+  margin-top: 32px;
+  color: var(--vp-c-brand-1);
+}
+
+/* Enhanced list styling */
+.vp-doc ul {
+  padding-left: 1.5rem;
+}
+
+.vp-doc li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+/* Add subtle hover effects to links */
+.vp-doc a {
+  transition: color 0.2s ease;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-2);
+}
+
+/* Section dividers */
+.vp-doc hr {
+  margin: 48px 0;
+  border: none;
+  border-top: 1px solid var(--vp-c-divider);
+  opacity: 0.5;
+}
+
+/* Better spacing for content sections */
+.vp-doc {
+  max-width: 800px;
+}
+
+/* Enhanced paragraph spacing */
+.vp-doc p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Styled strong text */
+.vp-doc strong {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
