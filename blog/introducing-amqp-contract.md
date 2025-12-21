@@ -4,6 +4,8 @@ description: "End-to-end type safety and automatic validation for AMQP messaging
 date: 2024-12-20
 author: Benoit TRAVERS
 tags: [typescript, rabbitmq, amqp, type-safety, messaging]
+published: true
+canonical_url: "https://btravers.github.io/blog/introducing-amqp-contract"
 ---
 
 # Introducing amqp-contract: Type-Safe RabbitMQ/AMQP Messaging for TypeScript
