@@ -170,7 +170,8 @@ const activities = createActivities(orderContract, {
         status: 'success' as const,
       });
     } catch (error) {
-      return Result.Error(new Error(`Payment failed: ${error.message}`));
+      const message = error instanceof Error ? error.message : String(error);
+      return Result.Error(new Error(`Payment failed: ${message}`));
     }
   },
 
