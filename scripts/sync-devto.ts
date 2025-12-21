@@ -69,10 +69,14 @@ function parseMarkdownWithFrontmatter(content: string): {
 
     // Parse arrays
     if (value.startsWith("[") && value.endsWith("]")) {
-      const arrayContent = value.slice(1, -1);
-      frontmatter[key] = arrayContent
-        .split(",")
-        .map((item) => item.trim().replace(/^['"]|['"]$/g, ""));
+      const arrayContent = value.slice(1, -1).trim();
+      if (arrayContent === "") {
+        frontmatter[key] = [];
+      } else {
+        frontmatter[key] = arrayContent
+          .split(",")
+          .map((item) => item.trim().replace(/^['"]|['"]$/g, ""));
+      }
     }
     // Parse numbers
     else if (/^\d+$/.test(value)) {
@@ -98,7 +102,18 @@ function serializeFrontmatter(frontmatter: ArticleFrontmatter): string {
     if (value === undefined) continue;
 
     if (Array.isArray(value)) {
-      lines.push(`${key}: [${value.map((v) => `${v}`).join(", ")}]`);
+      if (value.length === 0) {
+        lines.push(`${key}: []`);
+      } else {
+        const formattedValues = value.map((v) => {
+          // Quote string values that contain spaces or special characters
+          if (typeof v === "string") {
+            return v.includes(" ") || v.includes(",") ? `"${v}"` : v;
+          }
+          return `${v}`;
+        });
+        lines.push(`${key}: [${formattedValues.join(", ")}]`);
+      }
     } else if (typeof value === "string") {
       lines.push(`${key}: "${value}"`);
     } else {
