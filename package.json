@@ -16,6 +16,7 @@
     "format": "oxfmt .",
     "lint": "oxlint .",
     "sort": "sort-package-json",
+    "sync:devto": "tsx scripts/sync-devto.ts",
     "type-check": "vue-tsc --noEmit"
   },
   "devDependencies": {
@@ -23,6 +24,7 @@
     "oxfmt": "catalog:",
     "oxlint": "catalog:",
     "sort-package-json": "catalog:",
+    "tsx": "catalog:",
     "typescript": "catalog:",
     "vitepress": "catalog:",
     "vue": "catalog:",
