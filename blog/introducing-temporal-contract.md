@@ -142,7 +142,7 @@ const activities = createActivities(orderContract, {
   validateInventory: async (input) => {
     // input.items is typed!
     const unavailable: string[] = [];
-    
+
     for (const item of input.items) {
       const inStock = await checkInventory(item.productId, item.quantity);
       if (!inStock) {
@@ -490,14 +490,14 @@ The Result/Future pattern provides a consistent approach to error handling for c
 
 temporal-contract is built as a modular monorepo with separate packages:
 
-| Package                                    | Description                                           |
-| ------------------------------------------ | ----------------------------------------------------- |
-| `@temporal-contract/contract`              | Contract builder and type definitions                 |
-| `@temporal-contract/worker`                | Type-safe worker with automatic validation            |
-| `@temporal-contract/client`                | Type-safe client for executing workflows              |
-| `@temporal-contract/worker-nestjs`         | NestJS integration with dependency injection          |
-| `@temporal-contract/boxed`                 | Temporal-compatible Result/Future types for workflows |
-| `@temporal-contract/testing`               | Testing utilities for integration tests               |
+| Package                            | Description                                           |
+| ---------------------------------- | ----------------------------------------------------- |
+| `@temporal-contract/contract`      | Contract builder and type definitions                 |
+| `@temporal-contract/worker`        | Type-safe worker with automatic validation            |
+| `@temporal-contract/client`        | Type-safe client for executing workflows              |
+| `@temporal-contract/worker-nestjs` | NestJS integration with dependency injection          |
+| `@temporal-contract/boxed`         | Temporal-compatible Result/Future types for workflows |
+| `@temporal-contract/testing`       | Testing utilities for integration tests               |
 
 Install only what you need:
 
