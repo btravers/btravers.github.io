@@ -6,7 +6,7 @@ Welcome to my blog! Here you'll find articles about software development, archit
 
 ### [Introducing temporal-contract: Type-Safe Temporal.io Workflows for TypeScript](./introducing-temporal-contract.md)
 
-_December 21, 2024_
+_December 21, 2025_
 
 Building reliable durable workflows in TypeScript just got easier. Learn about temporal-contract, a new library that brings type safety and contract-first development to Temporal.io workflows and activities.
 
