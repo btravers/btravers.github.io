@@ -158,6 +158,7 @@ const activities = createActivities(orderContract, {
   },
 
   processPayment: async (input) => {
+    // Errors thrown here will be caught by Temporal's automatic retry mechanism
     const transaction = await paymentGateway.charge({
       customerId: input.customerId,
       amount: input.amount,
