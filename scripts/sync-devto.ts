@@ -38,6 +38,10 @@ function parseMarkdownWithFrontmatter(content: string): {
   frontmatter: ArticleFrontmatter;
   body: string;
 } {
+  // Simple YAML frontmatter parser
+  // Note: This is a basic implementation that handles common cases.
+  // For more complex YAML features (nested objects, multiline strings, etc.),
+  // consider using a library like js-yaml or gray-matter.
   const frontmatterRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/;
   const match = content.match(frontmatterRegex);
 
@@ -49,7 +53,7 @@ function parseMarkdownWithFrontmatter(content: string): {
   const body = match[2].trim();
 
   // Parse YAML-like frontmatter
-  const frontmatter: any = {};
+  const frontmatter: Record<string, unknown> = {};
   const lines = frontmatterText.split("\n");
 
   for (const line of lines) {

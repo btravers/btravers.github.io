@@ -53,11 +53,13 @@ Your article content here...
 - **description** (optional): A brief description (shown in article previews)
 - **date** (required): Publication date in YYYY-MM-DD format
 - **author** (optional): Author name
-- **tags** (optional): Array of tags (max 4 tags for Dev.to)
+- **tags** (optional): Array of tags (max 4 tags for Dev.to). Use simple tags without commas.
 - **published** (optional): Whether to publish the article immediately (default: true)
 - **canonical_url** (optional): Canonical URL for the article (helps with SEO)
 - **devto_id** (auto-added): Dev.to article ID (added automatically after sync)
 - **devto_url** (auto-added): Dev.to article URL (added automatically after sync)
+
+**Note**: The frontmatter parser is optimized for simple, flat YAML structures. Avoid using complex nested objects or multiline strings in frontmatter. Tags containing commas or special characters should be avoided or properly quoted.
 
 ### 5. Manual Sync
 
