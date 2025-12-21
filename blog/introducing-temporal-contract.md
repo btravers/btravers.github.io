@@ -134,50 +134,78 @@ export const orderContract = defineContract({
 Activities are automatically typed based on your contract:
 
 ```typescript
-import { createActivities } from '@temporal-contract/worker';
+import { declareActivitiesHandler, ActivityError } from '@temporal-contract/worker/activity';
 import { orderContract } from './contract';
+import { Future } from '@swan-io/boxed';
 
 // ✅ Activities are fully typed! TypeScript knows the input/output types
-const activities = createActivities(orderContract, {
-  validateInventory: async (input) => {
-    // input.items is typed!
-    const unavailable: string[] = [];
+const activities = declareActivitiesHandler({
+  contract: orderContract,
+  activities: {
+    validateInventory: (input) => {
+      // input.items is typed!
+      return Future.fromPromise(
+        (async () => {
+          const unavailable: string[] = [];
 
-    for (const item of input.items) {
-      const inStock = await checkInventory(item.productId, item.quantity);
-      if (!inStock) {
-        unavailable.push(item.productId);
-      }
-    }
+          for (const item of input.items) {
+            const inStock = await checkInventory(item.productId, item.quantity);
+            if (!inStock) {
+              unavailable.push(item.productId);
+            }
+          }
 
-    // Return type is validated against schema
-    return {
-      available: unavailable.length === 0,
-      unavailableItems: unavailable,
-    };
-  },
+          return {
+            available: unavailable.length === 0,
+            unavailableItems: unavailable,
+          };
+        })()
+      ).mapError((error) =>
+        new ActivityError(
+          'INVENTORY_CHECK_FAILED',
+          error instanceof Error ? error.message : 'Failed to check inventory',
+          error
+        )
+      );
+    },
 
-  processPayment: async (input) => {
-    // Errors thrown here will be caught by Temporal's automatic retry mechanism
-    const transaction = await paymentGateway.charge({
-      customerId: input.customerId,
-      amount: input.amount,
-    });
+    processPayment: (input) => {
+      return Future.fromPromise(
+        paymentGateway.charge({
+          customerId: input.customerId,
+          amount: input.amount,
+        })
+      )
+        .mapError((error) =>
+          new ActivityError(
+            'PAYMENT_FAILED',
+            error instanceof Error ? error.message : 'Payment failed',
+            error
+          )
+        )
+        .mapOk((transaction) => ({
+          transactionId: transaction.id,
+          status: 'success' as const,
+        }));
+    },
 
-    return {
-      transactionId: transaction.id,
-      status: 'success' as const,
-    };
-  },
-
-  sendConfirmationEmail: async (input) => {
-    const sent = await emailService.send({
-      to: input.customerId,
-      template: 'order-confirmation',
-      data: { orderId: input.orderId },
-    });
-
-    return { sent };
+    sendConfirmationEmail: (input) => {
+      return Future.fromPromise(
+        emailService.send({
+          to: input.customerId,
+          template: 'order-confirmation',
+          data: { orderId: input.orderId },
+        })
+      )
+        .mapError((error) =>
+          new ActivityError(
+            'EMAIL_FAILED',
+            error instanceof Error ? error.message : 'Failed to send email',
+            error
+          )
+        )
+        .mapOk(() => ({ sent: true }));
+    },
   },
 });
 ```
