@@ -14,7 +14,7 @@ Building reliable durable workflows in TypeScript just got easier. Learn about t
 
 ### [Introducing amqp-contract: Type-Safe AMQP Messaging for TypeScript](./introducing-amqp-contract.md)
 
-_December 20, 2024_
+_December 20, 2025_
 
 Building reliable message-driven systems in TypeScript just got easier. Learn about amqp-contract, a new library that brings type safety and contract-first development to AMQP messaging.
 
