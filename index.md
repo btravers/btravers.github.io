@@ -93,7 +93,7 @@ Working as an **architect** at Emeria Technologies, the company that develops so
 
 ### 🏢 Software Engineer at Zenika
 
-**2018 - 2023** · Rennes, France
+**2015 - 2021** · Rennes, France
 
 Worked at Zenika, an international consulting company known for organizational and technical innovation. Contributed to diverse software solutions across various sectors including fintech, energy, and business management.
 
