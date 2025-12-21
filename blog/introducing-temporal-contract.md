@@ -53,7 +53,7 @@ export async function processPayment(orderId: string): Promise<void> {
 ✅ **End-to-end type safety** — Full TypeScript inference from contract to client, workflows, and activities  
 ✅ **Automatic validation** — Zod schema validation at all network boundaries  
 ✅ **Compile-time checks** — Catch errors before runtime  
-✅ **Result/Future pattern** — Explicit error handling with [@swan-io/boxed](https://github.com/swan-io/boxed)  
+✅ **Result/Future pattern** — Explicit error handling for child workflows with [@swan-io/boxed](https://github.com/swan-io/boxed)  
 ✅ **Child workflows** — Type-safe child workflow execution  
 ✅ **NestJS integration** — First-class support for dependency injection  
 ✅ **Better DX** — Full autocomplete, inline documentation, and refactoring support
@@ -136,7 +136,6 @@ Activities are automatically typed based on your contract:
 ```typescript
 import { createActivities } from '@temporal-contract/worker';
 import { orderContract } from './contract';
-import { Result } from '@swan-io/boxed';
 
 // ✅ Activities are fully typed! TypeScript knows the input/output types
 const activities = createActivities(orderContract, {
@@ -152,27 +151,22 @@ const activities = createActivities(orderContract, {
     }
 
     // Return type is validated against schema
-    return Result.Ok({
+    return {
       available: unavailable.length === 0,
       unavailableItems: unavailable,
-    });
+    };
   },
 
   processPayment: async (input) => {
-    try {
-      const transaction = await paymentGateway.charge({
-        customerId: input.customerId,
-        amount: input.amount,
-      });
+    const transaction = await paymentGateway.charge({
+      customerId: input.customerId,
+      amount: input.amount,
+    });
 
-      return Result.Ok({
-        transactionId: transaction.id,
-        status: 'success' as const,
-      });
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
-      return Result.Error(new Error(`Payment failed: ${message}`));
-    }
+    return {
+      transactionId: transaction.id,
+      status: 'success' as const,
+    };
   },
 
   sendConfirmationEmail: async (input) => {
@@ -182,7 +176,7 @@ const activities = createActivities(orderContract, {
       data: { orderId: input.orderId },
     });
 
-    return Result.Ok({ sent });
+    return { sent };
   },
 });
 ```
@@ -201,17 +195,13 @@ const workflows = createWorkflows(orderContract, {
     console.log(`Processing order ${input.orderId} for customer ${input.customerId}`);
 
     // ✅ Activities are typed - autocomplete works!
-    const inventoryResult = await activities.validateInventory({
+    const inventory = await activities.validateInventory({
       items: input.items,
     });
 
-    if (inventoryResult.isError()) {
-      throw new Error('Inventory validation failed');
-    }
-
-    if (!inventoryResult.value.available) {
+    if (!inventory.available) {
       throw new Error(
-        `Items unavailable: ${inventoryResult.value.unavailableItems.join(', ')}`
+        `Items unavailable: ${inventory.unavailableItems.join(', ')}`
       );
     }
 
@@ -221,17 +211,13 @@ const workflows = createWorkflows(orderContract, {
       0
     );
 
-    // Process payment with Result pattern
-    const paymentResult = await activities.processPayment({
+    // Process payment
+    const payment = await activities.processPayment({
       customerId: input.customerId,
       amount: totalAmount,
     });
 
-    if (paymentResult.isError()) {
-      throw new Error('Payment processing failed');
-    }
-
-    if (paymentResult.value.status !== 'success') {
+    if (payment.status !== 'success') {
       throw new Error('Payment was not successful');
     }
 
@@ -340,30 +326,31 @@ async function createOrder() {
 
 ## Result/Future Pattern for Error Handling
 
-One of the standout features of temporal-contract is its use of the **Result/Future pattern** from [@swan-io/boxed](https://github.com/swan-io/boxed). This provides explicit, type-safe error handling without relying on exceptions:
+One of the standout features of temporal-contract is its use of the **Result/Future pattern** from [@swan-io/boxed](https://github.com/swan-io/boxed) for **child workflow execution**. This provides explicit, type-safe error handling without relying on exceptions:
 
 ```typescript
-// Activities return Result<Success, Error>
-const paymentResult = await activities.processPayment({
-  customerId: 'CUST-123',
-  amount: 99.99,
+// Child workflows return Result<Success, Error>
+const childResult = await childWorkflows.notifications.sendNotifications({
+  orderId: 'ORD-123',
 });
 
 // Check for errors explicitly
-if (paymentResult.isError()) {
-  console.error('Payment failed:', paymentResult.error);
+if (childResult.isError()) {
+  console.error('Notification failed:', childResult.error);
   // Handle error case
 } else {
-  console.log('Payment succeeded:', paymentResult.value);
+  console.log('Notification sent:', childResult.value);
   // Handle success case
 }
 
 // Or use pattern matching
-paymentResult.match({
+childResult.match({
   Ok: (value) => console.log('Success:', value),
   Error: (error) => console.error('Failed:', error),
 });
 ```
+
+**Note:** Activities within workflows return plain values and use standard try/catch for error handling. The Result/Future pattern is specifically designed for child workflow execution where cross-workflow communication benefits from explicit error types.
 
 Benefits:
 
@@ -496,7 +483,7 @@ Validation at network boundaries catches invalid data before it reaches your bus
 
 ### 5. **Consistent Error Handling**
 
-The Result/Future pattern provides a consistent approach to error handling across all activities and workflows.
+The Result/Future pattern provides a consistent approach to error handling for child workflows, while activities use standard TypeScript error handling that works naturally with Temporal's built-in retry mechanisms.
 
 ## Monorepo Architecture
 
