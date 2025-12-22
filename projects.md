@@ -22,6 +22,16 @@ Contract testing framework for Temporal workflows. Ensures reliable workflow def
 
 ---
 
+## [ts-asyncapi](https://github.com/btravers/ts-asyncapi)
+
+TypeScript library for working with AsyncAPI specifications. Provides tools and utilities for building event-driven architectures.
+
+**Technologies:** TypeScript, AsyncAPI, Event-Driven Architecture
+
+**Repository:** [github.com/btravers/ts-asyncapi](https://github.com/btravers/ts-asyncapi)
+
+---
+
 ## More Projects
 
 Check out my [GitHub profile](https://github.com/btravers) for more projects and contributions.
