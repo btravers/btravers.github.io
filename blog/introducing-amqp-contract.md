@@ -142,7 +142,7 @@ async function publishOrder() {
   });
 
   // ✅ Fully typed! TypeScript knows exactly what fields are required
-  await client.publish('orderCreated', {
+  const result = await client.publish('orderCreated', {
     orderId: 'ORD-123',
     customerId: 'CUST-456',
     amount: 99.99,
@@ -152,8 +152,14 @@ async function publishOrder() {
     ],
   });
 
+  // Check for errors using Result type
+  if (result.isError()) {
+    console.error('Failed to publish:', result.error);
+    return;
+  }
+
   // ❌ TypeScript error: Type 'string' is not assignable to type 'number'
-  // await client.publish('orderCreated', {
+  // const invalidResult = await client.publish('orderCreated', {
   //   orderId: 'ORD-123',
   //   customerId: 'CUST-456',
   //   amount: 'invalid', // Error caught at compile time!
@@ -169,6 +175,7 @@ The client automatically:
 - ✅ Validates the message against the schema
 - ✅ Serializes to JSON and Buffer
 - ✅ Publishes to the correct exchange with routing key
+- ✅ Returns a Result type for explicit error handling
 - ✅ Provides full autocomplete in your IDE
 
 ### Step 3: Type-Safe Consuming
@@ -309,25 +316,43 @@ After using amqp-contract in production, here are the benefits we've seen:
 
 ```typescript
 // ❌ TypeScript error caught immediately
-await client.publish('orderCreated', {
+const result = await client.publish('orderCreated', {
   orderId: 123, // Error: Type 'number' is not assignable to 'string'
   amount: 99.99,
 });
 ```
 
-### 2. **Refactor with Confidence**
+### 2. **Explicit Runtime Error Handling**
+
+```typescript
+const result = await client.publish('orderCreated', {
+  orderId: 'ORD-123',
+  customerId: 'CUST-456',
+  amount: 99.99,
+});
+
+if (result.isError()) {
+  // Handle TechnicalError or MessageValidationError
+  console.error('Failed to publish:', result.error);
+  return;
+}
+
+console.log('Published successfully');
+```
+
+### 3. **Refactor with Confidence**
 
 Change your message schema once, and TypeScript guides you to update all publishers and consumers. No more runtime surprises!
 
-### 3. **Better Onboarding**
+### 4. **Better Onboarding**
 
 New developers can see exactly what messages are available and what fields they require just by looking at the contract and using IDE autocomplete.
 
-### 4. **Automatic Documentation**
+### 5. **Automatic Documentation**
 
 AsyncAPI generation means your documentation is always in sync with your code.
 
-### 5. **Reduced Bugs**
+### 6. **Reduced Bugs**
 
 Validation at network boundaries catches invalid data before it reaches your business logic.
 
