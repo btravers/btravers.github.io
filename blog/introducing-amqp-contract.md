@@ -67,31 +67,24 @@ channel.consume('order-processing', (msg) => {
 First, define your AMQP topology and message schemas in one place:
 
 ```typescript
-import {
-  defineContract,
-  defineExchange,
-  defineQueue,
-  defineBinding,
-  definePublisher,
-  defineConsumer,
-} from '@amqp-contract/contract';
+import { contract } from '@amqp-contract/contract';
 import { z } from 'zod';
 
 // Define contract once with full type safety
-export const orderContract = defineContract({
+export const orderContract = contract({
   exchanges: {
-    orders: defineExchange('orders', 'topic', { durable: true }),
+    orders: contract.exchange('orders', 'topic', { durable: true }),
   },
   queues: {
-    orderProcessing: defineQueue('order-processing', { durable: true }),
+    orderProcessing: contract.queue('order-processing', { durable: true }),
   },
   bindings: {
-    orderBinding: defineBinding('order-processing', 'orders', {
+    orderBinding: contract.binding('order-processing', 'orders', {
       routingKey: 'order.created',
     }),
   },
   publishers: {
-    orderCreated: definePublisher(
+    orderCreated: contract.publisher(
       'orders',
       z.object({
         orderId: z.string(),
@@ -108,7 +101,7 @@ export const orderContract = defineContract({
     ),
   },
   consumers: {
-    processOrder: defineConsumer(
+    processOrder: contract.consumer(
       'order-processing',
       z.object({
         orderId: z.string(),
