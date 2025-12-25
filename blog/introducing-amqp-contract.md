@@ -56,6 +56,7 @@ channel.consume('order-processing', (msg) => {
 ✅ **End-to-end type safety** — Full TypeScript inference from contract to client and worker  
 ✅ **Automatic validation** — Schema validation at all network boundaries  
 ✅ **Compile-time checks** — Catch errors before runtime  
+✅ **Explicit error handling** — Result type for robust error management without exceptions  
 ✅ **AsyncAPI generation** — Generate AsyncAPI 3.0 specifications automatically  
 ✅ **Better DX** — Full autocomplete, inline documentation, and refactoring support  
 ✅ **Flexible schemas** — Use Zod, Valibot, or ArkType
