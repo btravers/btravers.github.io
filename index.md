@@ -14,7 +14,6 @@ hero:
     - theme: alt
       text: View Projects
       link: "/projects"
-
 ---
 
 ## About Me
