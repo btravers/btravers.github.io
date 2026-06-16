@@ -16,11 +16,11 @@ Temporal is an incredible platform for building reliable, fault-tolerant distrib
 
 ```typescript
 // ❌ Traditional approach: Manual type coordination
-import { proxyActivities } from '@temporalio/workflow';
-import type * as activities from './activities';
+import { proxyActivities } from "@temporalio/workflow";
+import type * as activities from "./activities";
 
 const { processPayment, sendEmail } = proxyActivities<typeof activities>({
-  startToCloseTimeout: '1 minute',
+  startToCloseTimeout: "1 minute",
 });
 
 export async function orderWorkflow(orderId: string): Promise<void> {
@@ -65,12 +65,12 @@ export async function processPayment(orderId: string): Promise<void> {
 First, define your Temporal contract with workflows and activities in one place:
 
 ```typescript
-import { defineContract } from '@temporal-contract/contract';
-import { z } from 'zod';
+import { defineContract } from "@temporal-contract/contract";
+import { z } from "zod";
 
 // Define contract once with full type safety
 export const orderContract = defineContract({
-  taskQueue: 'orders',
+  taskQueue: "orders",
   workflows: {
     processOrder: {
       input: z.object({
@@ -81,7 +81,7 @@ export const orderContract = defineContract({
             productId: z.string(),
             quantity: z.number().int().positive(),
             price: z.number().positive(),
-          })
+          }),
         ),
       }),
       output: z.object({
@@ -96,7 +96,7 @@ export const orderContract = defineContract({
               z.object({
                 productId: z.string(),
                 quantity: z.number(),
-              })
+              }),
             ),
           }),
           output: z.object({
@@ -111,7 +111,7 @@ export const orderContract = defineContract({
           }),
           output: z.object({
             transactionId: z.string(),
-            status: z.enum(['success', 'failed', 'pending']),
+            status: z.enum(["success", "failed", "pending"]),
           }),
         },
         sendConfirmationEmail: {
@@ -134,9 +134,9 @@ export const orderContract = defineContract({
 Activities use the `declareActivitiesHandler` function and return `Future` objects from [@swan-io/boxed](https://github.com/swan-io/boxed) for explicit error handling:
 
 ```typescript
-import { declareActivitiesHandler, ActivityError } from '@temporal-contract/worker/activity';
-import { orderContract } from './contract';
-import { Future } from '@swan-io/boxed';
+import { declareActivitiesHandler, ActivityError } from "@temporal-contract/worker/activity";
+import { orderContract } from "./contract";
+import { Future } from "@swan-io/boxed";
 
 // ✅ Activities are fully typed! TypeScript knows the input/output types
 export const activities = declareActivitiesHandler({
@@ -159,13 +159,14 @@ export const activities = declareActivitiesHandler({
             available: unavailable.length === 0,
             unavailableItems: unavailable,
           };
-        })()
-      ).mapError((error) =>
-        new ActivityError(
-          'INVENTORY_CHECK_FAILED',
-          error instanceof Error ? error.message : 'Failed to check inventory',
-          error
-        )
+        })(),
+      ).mapError(
+        (error) =>
+          new ActivityError(
+            "INVENTORY_CHECK_FAILED",
+            error instanceof Error ? error.message : "Failed to check inventory",
+            error,
+          ),
       );
     },
 
@@ -174,18 +175,19 @@ export const activities = declareActivitiesHandler({
         paymentGateway.charge({
           customerId,
           amount,
-        })
+        }),
       )
-        .mapError((error) =>
-          new ActivityError(
-            'PAYMENT_FAILED',
-            error instanceof Error ? error.message : 'Payment failed',
-            error
-          )
+        .mapError(
+          (error) =>
+            new ActivityError(
+              "PAYMENT_FAILED",
+              error instanceof Error ? error.message : "Payment failed",
+              error,
+            ),
         )
         .mapOk((transaction) => ({
           transactionId: transaction.id,
-          status: 'success' as const,
+          status: "success" as const,
         }));
     },
 
@@ -193,16 +195,17 @@ export const activities = declareActivitiesHandler({
       return Future.fromPromise(
         emailService.send({
           to: customerId,
-          template: 'order-confirmation',
+          template: "order-confirmation",
           data: { orderId },
-        })
+        }),
       )
-        .mapError((error) =>
-          new ActivityError(
-            'EMAIL_FAILED',
-            error instanceof Error ? error.message : 'Failed to send email',
-            error
-          )
+        .mapError(
+          (error) =>
+            new ActivityError(
+              "EMAIL_FAILED",
+              error instanceof Error ? error.message : "Failed to send email",
+              error,
+            ),
         )
         .mapOk(() => ({ sent: true }));
     },
@@ -222,11 +225,11 @@ export const activities = declareActivitiesHandler({
 Workflows use `declareWorkflow` and receive unwrapped plain values from activities:
 
 ```typescript
-import { declareWorkflow } from '@temporal-contract/worker/workflow';
-import { orderContract } from './contract';
+import { declareWorkflow } from "@temporal-contract/worker/workflow";
+import { orderContract } from "./contract";
 
 export const processOrder = declareWorkflow({
-  workflowName: 'processOrder',
+  workflowName: "processOrder",
   contract: orderContract,
   implementation: async ({ activities }, input) => {
     // ✅ input is fully typed from contract!
@@ -238,16 +241,11 @@ export const processOrder = declareWorkflow({
     });
 
     if (!inventory.available) {
-      throw new Error(
-        `Items unavailable: ${inventory.unavailableItems.join(', ')}`
-      );
+      throw new Error(`Items unavailable: ${inventory.unavailableItems.join(", ")}`);
     }
 
     // Calculate total
-    const totalAmount = input.items.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0
-    );
+    const totalAmount = input.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     // Process payment - activity returns plain value
     const payment = await activities.processPayment({
@@ -255,8 +253,8 @@ export const processOrder = declareWorkflow({
       amount: totalAmount,
     });
 
-    if (payment.status !== 'success') {
-      throw new Error('Payment was not successful');
+    if (payment.status !== "success") {
+      throw new Error("Payment was not successful");
     }
 
     // Send confirmation
@@ -282,23 +280,23 @@ export const processOrder = declareWorkflow({
 Create a worker using the standard Temporal Worker with your activities:
 
 ```typescript
-import { Worker } from '@temporalio/worker';
-import { activities } from './activities';
-import { orderContract } from './contract';
+import { Worker } from "@temporalio/worker";
+import { activities } from "./activities";
+import { orderContract } from "./contract";
 
 async function startWorker() {
   const worker = await Worker.create({
-    workflowsPath: require.resolve('./workflows'),
+    workflowsPath: require.resolve("./workflows"),
     activities,
     taskQueue: orderContract.taskQueue,
   });
 
-  console.log('Worker started, listening for tasks...');
+  console.log("Worker started, listening for tasks...");
   await worker.run();
 
   // Graceful shutdown
-  process.on('SIGINT', async () => {
-    console.log('Shutting down worker...');
+  process.on("SIGINT", async () => {
+    console.log("Shutting down worker...");
     await worker.shutdown();
     process.exit(0);
   });
@@ -312,29 +310,29 @@ startWorker().catch(console.error);
 Use the `TypedClient` to execute workflows with full type safety:
 
 ```typescript
-import { TypedClient } from '@temporal-contract/client';
-import { Connection, Client } from '@temporalio/client';
-import { orderContract } from './contract';
+import { TypedClient } from "@temporal-contract/client";
+import { Connection, Client } from "@temporalio/client";
+import { orderContract } from "./contract";
 
 async function createOrder() {
-  const connection = await Connection.connect({ address: 'localhost:7233' });
+  const connection = await Connection.connect({ address: "localhost:7233" });
   const temporalClient = new Client({ connection });
   const client = TypedClient.create(orderContract, temporalClient);
 
   // ✅ Fully typed! TypeScript knows exactly what fields are required
-  const result = await client.executeWorkflow('processOrder', {
-    workflowId: 'order-12345',
+  const result = await client.executeWorkflow("processOrder", {
+    workflowId: "order-12345",
     args: {
-      orderId: 'ORD-12345',
-      customerId: 'CUST-789',
+      orderId: "ORD-12345",
+      customerId: "CUST-789",
       items: [
-        { productId: 'PROD-A', quantity: 2, price: 29.99 },
-        { productId: 'PROD-B', quantity: 1, price: 49.99 },
+        { productId: "PROD-A", quantity: 2, price: 29.99 },
+        { productId: "PROD-B", quantity: 1, price: 49.99 },
       ],
     },
   });
 
-  console.log('Order processed successfully!');
+  console.log("Order processed successfully!");
   console.log(`Order ID: ${result.orderId}`);
   console.log(`Total: $${result.totalAmount}`);
 
@@ -368,12 +366,10 @@ const activities = declareActivitiesHandler({
   activities: {
     processPayment: ({ orderId }) => {
       return Future.fromPromise(paymentService.process(orderId))
-        .mapError((error) =>
-          new ActivityError('PAYMENT_FAILED', 'Payment failed', error)
-        )
+        .mapError((error) => new ActivityError("PAYMENT_FAILED", "Payment failed", error))
         .mapOk((txId) => ({ transactionId: txId }));
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -383,23 +379,23 @@ Child workflows also return `Result` objects for explicit error handling:
 
 ```typescript
 export const parentWorkflow = declareWorkflow({
-  workflowName: 'parentWorkflow',
+  workflowName: "parentWorkflow",
   contract: myContract,
   implementation: async ({ executeChildWorkflow }, input) => {
     // Execute child workflow and get Result
-    const childResult = await executeChildWorkflow(myContract, 'processPayment', {
+    const childResult = await executeChildWorkflow(myContract, "processPayment", {
       workflowId: `payment-${input.orderId}`,
-      args: { amount: input.totalAmount }
+      args: { amount: input.totalAmount },
     });
 
     // Check for errors explicitly
     childResult.match({
-      Ok: (output) => console.log('Payment processed:', output),
-      Error: (error) => console.error('Payment failed:', error),
+      Ok: (output) => console.log("Payment processed:", output),
+      Error: (error) => console.error("Payment failed:", error),
     });
 
     return { success: true };
-  }
+  },
 });
 ```
 
@@ -417,7 +413,7 @@ temporal-contract supports type-safe child workflow execution with the Result/Fu
 ```typescript
 // Define parent and child contracts
 const childContract = defineContract({
-  taskQueue: 'notifications',
+  taskQueue: "notifications",
   workflows: {
     sendNotifications: {
       input: z.object({ orderId: z.string() }),
@@ -427,7 +423,7 @@ const childContract = defineContract({
 });
 
 const parentContract = defineContract({
-  taskQueue: 'orders',
+  taskQueue: "orders",
   workflows: {
     processOrder: {
       input: z.object({ orderId: z.string() }),
@@ -438,35 +434,27 @@ const parentContract = defineContract({
 
 // Execute child workflow with full type safety
 export const processOrder = declareWorkflow({
-  workflowName: 'processOrder',
+  workflowName: "processOrder",
   contract: parentContract,
   implementation: async ({ executeChildWorkflow, startChildWorkflow }, input) => {
     // ... process order logic
 
     // Execute and wait for result
-    const notificationResult = await executeChildWorkflow(
-      childContract,
-      'sendNotifications',
-      {
-        workflowId: `notification-${input.orderId}`,
-        args: { orderId: input.orderId },
-      }
-    );
+    const notificationResult = await executeChildWorkflow(childContract, "sendNotifications", {
+      workflowId: `notification-${input.orderId}`,
+      args: { orderId: input.orderId },
+    });
 
     notificationResult.match({
-      Ok: (output) => console.log('Notifications sent:', output.sent),
-      Error: (error) => console.error('Failed:', error),
+      Ok: (output) => console.log("Notifications sent:", output.sent),
+      Error: (error) => console.error("Failed:", error),
     });
 
     // Or start without waiting
-    const handleResult = await startChildWorkflow(
-      childContract,
-      'sendNotifications',
-      {
-        workflowId: `notification-async-${input.orderId}`,
-        args: { orderId: input.orderId },
-      }
-    );
+    const handleResult = await startChildWorkflow(childContract, "sendNotifications", {
+      workflowId: `notification-async-${input.orderId}`,
+      args: { orderId: input.orderId },
+    });
 
     handleResult.match({
       Ok: async (handle) => {
@@ -474,11 +462,11 @@ export const processOrder = declareWorkflow({
         const result = await handle.result();
         // ...
       },
-      Error: (error) => console.error('Failed to start:', error),
+      Error: (error) => console.error("Failed to start:", error),
     });
 
     return { success: true };
-  }
+  },
 });
 ```
 
@@ -494,11 +482,11 @@ After using temporal-contract in production, here are the benefits we've seen:
 
 ```typescript
 // ❌ TypeScript error caught immediately
-await client.executeWorkflow('processOrder', {
-  workflowId: 'order-123',
+await client.executeWorkflow("processOrder", {
+  workflowId: "order-123",
   args: {
     orderId: 123, // Error: Type 'number' is not assignable to 'string'
-    customerId: 'CUST-456',
+    customerId: "CUST-456",
   },
 });
 ```

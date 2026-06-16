@@ -20,16 +20,18 @@ const channel = await connection.createChannel();
 
 // Publishing - what fields? what types?
 channel.publish(
-  'orders',
-  'order.created',
-  Buffer.from(JSON.stringify({
-    orderId: 'ORD-123',
-    amount: 99.99
-  }))
+  "orders",
+  "order.created",
+  Buffer.from(
+    JSON.stringify({
+      orderId: "ORD-123",
+      amount: 99.99,
+    }),
+  ),
 );
 
 // Consuming - message type is unknown
-channel.consume('order-processing', (msg) => {
+channel.consume("order-processing", (msg) => {
   if (msg) {
     const data = JSON.parse(msg.content.toString()); // any type
     console.log(data.orderId); // No autocomplete, no validation
@@ -74,25 +76,25 @@ import {
   defineBinding,
   definePublisher,
   defineConsumer,
-} from '@amqp-contract/contract';
-import { z } from 'zod';
+} from "@amqp-contract/contract";
+import { z } from "zod";
 
 // Define contract once with full type safety
 export const orderContract = defineContract({
   exchanges: {
-    orders: defineExchange('orders', 'topic', { durable: true }),
+    orders: defineExchange("orders", "topic", { durable: true }),
   },
   queues: {
-    orderProcessing: defineQueue('order-processing', { durable: true }),
+    orderProcessing: defineQueue("order-processing", { durable: true }),
   },
   bindings: {
-    orderBinding: defineBinding('order-processing', 'orders', {
-      routingKey: 'order.created',
+    orderBinding: defineBinding("order-processing", "orders", {
+      routingKey: "order.created",
     }),
   },
   publishers: {
     orderCreated: definePublisher(
-      'orders',
+      "orders",
       z.object({
         orderId: z.string(),
         customerId: z.string(),
@@ -101,15 +103,15 @@ export const orderContract = defineContract({
           z.object({
             productId: z.string(),
             quantity: z.number().int().positive(),
-          })
+          }),
         ),
       }),
-      { routingKey: 'order.created' }
+      { routingKey: "order.created" },
     ),
   },
   consumers: {
     processOrder: defineConsumer(
-      'order-processing',
+      "order-processing",
       z.object({
         orderId: z.string(),
         customerId: z.string(),
@@ -118,10 +120,10 @@ export const orderContract = defineContract({
           z.object({
             productId: z.string(),
             quantity: z.number().int().positive(),
-          })
+          }),
         ),
       }),
-      { prefetch: 10 }
+      { prefetch: 10 },
     ),
   },
 });
@@ -132,23 +134,23 @@ export const orderContract = defineContract({
 Use the typed client to publish messages with full type safety:
 
 ```typescript
-import { TypedAmqpClient } from '@amqp-contract/client';
-import { orderContract } from './contract';
+import { TypedAmqpClient } from "@amqp-contract/client";
+import { orderContract } from "./contract";
 
 async function publishOrder() {
   const client = await TypedAmqpClient.create({
     contract: orderContract,
-    connection: 'amqp://localhost',
+    connection: "amqp://localhost",
   });
 
   // ✅ Fully typed! TypeScript knows exactly what fields are required
-  await client.publish('orderCreated', {
-    orderId: 'ORD-123',
-    customerId: 'CUST-456',
+  await client.publish("orderCreated", {
+    orderId: "ORD-123",
+    customerId: "CUST-456",
     amount: 99.99,
     items: [
-      { productId: 'PROD-A', quantity: 2 },
-      { productId: 'PROD-B', quantity: 1 },
+      { productId: "PROD-A", quantity: 2 },
+      { productId: "PROD-B", quantity: 1 },
     ],
   });
 
@@ -159,7 +161,7 @@ async function publishOrder() {
   //   amount: 'invalid', // Error caught at compile time!
   // });
 
-  console.log('Order published with validation!');
+  console.log("Order published with validation!");
   await client.close();
 }
 ```
@@ -176,8 +178,8 @@ The client automatically:
 Create workers with fully typed message handlers:
 
 ```typescript
-import { TypedAmqpWorker } from '@amqp-contract/worker';
-import { orderContract } from './contract';
+import { TypedAmqpWorker } from "@amqp-contract/worker";
+import { orderContract } from "./contract";
 
 async function startWorker() {
   const worker = await TypedAmqpWorker.create({
@@ -201,14 +203,14 @@ async function startWorker() {
         // Your business logic here...
       },
     },
-    connection: 'amqp://localhost',
+    connection: "amqp://localhost",
   });
 
-  console.log('Worker started, waiting for messages...');
+  console.log("Worker started, waiting for messages...");
 
   // Graceful shutdown
-  process.on('SIGINT', async () => {
-    console.log('Shutting down worker...');
+  process.on("SIGINT", async () => {
+    console.log("Shutting down worker...");
     await worker.close();
     process.exit(0);
   });
@@ -227,32 +229,32 @@ The worker automatically:
 One of the most powerful features is automatic AsyncAPI 3.0 generation. Document your API without writing a single line of YAML:
 
 ```typescript
-import { generateAsyncAPI } from '@amqp-contract/asyncapi';
-import { orderContract } from './contract';
-import { writeFileSync } from 'node:fs';
+import { generateAsyncAPI } from "@amqp-contract/asyncapi";
+import { orderContract } from "./contract";
+import { writeFileSync } from "node:fs";
 
 const spec = generateAsyncAPI(orderContract, {
   info: {
-    title: 'Order Processing API',
-    version: '1.0.0',
-    description: 'API for processing customer orders',
+    title: "Order Processing API",
+    version: "1.0.0",
+    description: "API for processing customer orders",
   },
   servers: {
     production: {
-      host: 'rabbitmq.example.com:5672',
-      protocol: 'amqp',
-      description: 'Production RabbitMQ server',
+      host: "rabbitmq.example.com:5672",
+      protocol: "amqp",
+      description: "Production RabbitMQ server",
     },
     development: {
-      host: 'localhost:5672',
-      protocol: 'amqp',
-      description: 'Local development server',
+      host: "localhost:5672",
+      protocol: "amqp",
+      description: "Local development server",
     },
   },
 });
 
 // Save AsyncAPI spec
-writeFileSync('asyncapi.json', JSON.stringify(spec, null, 2));
+writeFileSync("asyncapi.json", JSON.stringify(spec, null, 2));
 ```
 
 This generates a complete AsyncAPI specification that you can use with:
@@ -269,7 +271,7 @@ While the examples above use Zod, **amqp-contract** supports any [Standard Schem
 ### Zod
 
 ```typescript
-import { z } from 'zod';
+import { z } from "zod";
 
 const schema = z.object({
   orderId: z.string(),
@@ -280,7 +282,7 @@ const schema = z.object({
 ### Valibot
 
 ```typescript
-import * as v from 'valibot';
+import * as v from "valibot";
 
 const schema = v.object({
   orderId: v.string(),
@@ -291,11 +293,11 @@ const schema = v.object({
 ### ArkType
 
 ```typescript
-import { type } from 'arktype';
+import { type } from "arktype";
 
 const schema = type({
-  orderId: 'string',
-  amount: 'number>0',
+  orderId: "string",
+  amount: "number>0",
 });
 ```
 
@@ -309,7 +311,7 @@ After using amqp-contract in production, here are the benefits we've seen:
 
 ```typescript
 // ❌ TypeScript error caught immediately
-await client.publish('orderCreated', {
+await client.publish("orderCreated", {
   orderId: 123, // Error: Type 'number' is not assignable to 'string'
   amount: 99.99,
 });
