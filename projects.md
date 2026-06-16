@@ -1,37 +1,24 @@
+---
+title: Projects — Benoit TRAVERS
+description: Open-source libraries and tools for contract testing in message-driven and workflow-based architectures.
+---
+
 # Projects
 
-Here are some of the projects I've worked on:
+A selection of the things I build and maintain. For everything else, see my [GitHub profile](https://github.com/btravers).
 
-## [amqp-contract](https://btravers.github.io/amqp-contract/)
+## amqp-contract
 
-Contract testing for AMQP-based message queues. This project provides tools and patterns for testing message-driven architectures.
+Contract-first testing for AMQP-based messaging. Define your messages once, generate types, and catch breaking changes before they reach production.
 
-**Technologies:** AMQP, Message Queues, Contract Testing
+- **Stack.** TypeScript, AMQP / RabbitMQ
+- **Docs.** <a href="https://btravers.github.io/amqp-contract/" rel="noopener">btravers.github.io/amqp-contract</a>
+- **Source.** <a href="https://github.com/btravers/amqp-contract" rel="noopener">github.com/btravers/amqp-contract</a>
 
-**Repository:** [github.com/btravers/amqp-contract](https://github.com/btravers/amqp-contract)
+## temporal-contract
 
----
+A contract-testing framework for [Temporal](https://temporal.io) workflows and activities. Brings the same type-safe, contract-first approach to durable workflow orchestration.
 
-## [temporal-contract](https://btravers.github.io/temporal-contract/)
-
-Contract testing framework for Temporal workflows. Ensures reliable workflow definitions and integrations.
-
-**Technologies:** Temporal, Workflow Testing, Contract Testing
-
-**Repository:** [github.com/btravers/temporal-contract](https://github.com/btravers/temporal-contract)
-
----
-
-## [ts-asyncapi](https://github.com/btravers/ts-asyncapi)
-
-TypeScript library for working with AsyncAPI specifications. Provides tools and utilities for building event-driven architectures.
-
-**Technologies:** TypeScript, AsyncAPI, Event-Driven Architecture
-
-**Repository:** [github.com/btravers/ts-asyncapi](https://github.com/btravers/ts-asyncapi)
-
----
-
-## More Projects
-
-Check out my [GitHub profile](https://github.com/btravers) for more projects and contributions.
+- **Stack.** TypeScript, Temporal
+- **Docs.** <a href="https://btravers.github.io/temporal-contract/" rel="noopener">btravers.github.io/temporal-contract</a>
+- **Source.** <a href="https://github.com/btravers/temporal-contract" rel="noopener">github.com/btravers/temporal-contract</a>

@@ -1,135 +1,79 @@
 ---
 layout: home
+title: Benoit TRAVERS — Software Engineer
+description: Freelance software engineer and architect specializing in distributed systems, backend development, and event-driven architectures.
 
 hero:
   name: "Benoit TRAVERS"
-  text: "Software engineer"
+  text: "Software engineer & architect"
+  tagline: I design distributed systems and build the backends behind them — pragmatic, well-tested, and built to last.
   image:
     src: /logo.svg
-    alt: Benoit TRAVERS Logo
+    alt: BT monogram for Benoit TRAVERS
   actions:
     - theme: brand
-      text: Contact Me
+      text: Get in touch
       link: "#contact"
     - theme: alt
-      text: View Projects
+      text: See projects
       link: "/projects"
 ---
 
-## About Me
+## About
 
-Software engineer passionate about building reliable and scalable systems. I specialize in architecture, backend development, and creating elegant solutions to complex problems.
+I'm a freelance software engineer based in France. I focus on backend systems and architecture — designing services that stay reliable as they grow, and shipping the code to back that up.
 
-### What I Do
-
-- 🏗️ **Architecture**: Designing distributed systems and microservices
-- ⚙️ **Backend Development**: Building robust APIs and services
-- 🌐 **Frontend Development**: Creating user-friendly web applications
-
-### Interests
-
-- Web Development
-- Open Source
-- Technology
+I care about contract-first design, observability, and tests that prove the system actually works in production. Most of my recent work has been in message-driven and workflow-based architectures.
 
 ---
 
 ## Skills
 
-### Backend Development
+**Backend.** Java, Kotlin, TypeScript / Node.js. Spring, NestJS. PostgreSQL, Elasticsearch, MongoDB.
 
-- **Languages:** Java, Kotlin, TypeScript/Node.js
-- **Frameworks:** Spring Framework, NestJS
-- **Message Queues:** AMQP/RabbitMQ, Kafka
-- **Databases:** PostgreSQL, Elasticsearch, MongoDB
-- **Workflows:** Temporal
+**Distributed systems.** AMQP / RabbitMQ, Kafka, Temporal. Microservices, contract testing, event-driven design.
 
-### Frontend Development
+**Frontend.** TypeScript, React, Vue.
 
-- **Languages:** TypeScript
-- **Frameworks:** React, Vue.js
+**Platform.** Docker, AWS, GitHub Actions, GitLab CI.
 
-### DevOps & Cloud
-
-- **Containerization:** Docker
-- **Cloud Platforms:** AWS
-- **CI/CD:** GitHub Actions, GitLab CI/CD
-
-### Tools & Practices
-
-- **Version Control:** Git, GitHub, GitLab
-- **Testing:** Vitest, Jest, Playwright, Testcontainers
-- **Authentication:** OAuth2/OIDC, Keycloak, Okta
-- **Architecture:** Microservices, Distributed Systems
+**Practices.** OAuth2 / OIDC (Keycloak, Okta), Vitest, Jest, Playwright, Testcontainers.
 
 ---
 
-## Experiences
+## Experience
 
-### 💼 Freelance Software Developer
+### Freelance Software Engineer
 
-**Current** · Specializing in architecture and backend development
+_2021 — Present_
 
-#### Current Client: Emeria Technologies
+Working as an **architect at Emeria Technologies**, the engineering arm of Foncia — one of the largest real-estate management groups in France.
 
-Working as an **architect** at Emeria Technologies, the company that develops software for Foncia, a leading French real estate management company.
+- Design and implement distributed services and microservices.
+- Build APIs and backend integrations across an evolving platform.
+- Review code, mentor engineers, and help raise the bar on testing and architecture.
+- Author open-source tools for contract testing in message-driven and workflow-based systems.
 
-**Key Responsibilities:**
+### Software Engineer at Zenika
 
-- 🏗️ Designing and implementing distributed systems and microservices
-- 🔧 Building robust APIs and services with modern backend technologies
-- 💻 Developing user-friendly web applications
-- 👥 Code reviewing and mentoring team members
-- ☁️ Contributing to scalable and secure cloud applications
+_2015 — 2021 · Rennes, France_
 
-**Notable Contributions:**
+Consultant at Zenika, an international tech consultancy. Delivered software across fintech, energy, and business-management domains.
 
-- ✨ Developed open-source tools for contract testing in message-driven architectures
-- 🔄 Created solutions for workflow testing and validation
-- 🛠️ Built practical tools for software development and testing
-
----
-
-### 🏢 Software Engineer at Zenika
-
-**2015 - 2021** · Rennes, France
-
-Worked at Zenika, an international consulting company known for organizational and technical innovation. Contributed to diverse software solutions across various sectors including fintech, energy, and business management.
-
-**Key Responsibilities:**
-
-- 🏗️ Architecting and delivering distributed systems and microservices for multiple clients
-- 🔧 Implementing and integrating robust APIs and backend services within existing client ecosystems
-- 💻 Developing and refining user-facing web applications in collaboration with product teams
-- 👥 Performing code reviews, facilitating technical workshops, and mentoring team members
-- ☁️ Designing, hardening, and operating cloud-native solutions with a focus on scalability and security
-
-**Key Achievements:**
-
-- 🚀 Led multiple successful client projects in various domains
-- 📚 Contributed to internal knowledge sharing and best practices
-- 🤝 Mentored junior developers and participated in technical interviews
+- Architected and shipped distributed systems and microservices for multiple clients.
+- Built APIs, backend services, and user-facing web applications.
+- Ran code reviews, technical workshops, and interviews; mentored junior developers.
+- Designed and operated cloud-native solutions with a focus on scalability and security.
 
 ---
 
 ## Contact
 
-Get in touch with me through the following channels:
+The best ways to reach me:
 
-### Social Media
+- **Email** — <a href="mailto:benoit.travers.fr@gmail.com">benoit.travers.fr@gmail.com</a>
+- **LinkedIn** — <a href="https://linkedin.com/in/btraversfr" rel="me">btraversfr</a>
+- **GitHub** — <a href="https://github.com/btravers" rel="me">btravers</a>
+- **X / Twitter** — <a href="https://x.com/Benoit_Travers" rel="me">@Benoit_Travers</a>
 
-- **GitHub:** [github.com/btravers](https://github.com/btravers)
-- **Twitter:** <a href="https://x.com/Benoit_Travers">@Benoit_Travers</a>
-- **LinkedIn:** <a href="https://linkedin.com/in/btraversfr">btraversfr</a>
-
-### Email
-
-Feel free to reach out via email at: **benoit.travers.fr@gmail.com**
-
-I'm always interested in:
-
-- Collaborating on open source projects
-- Discussing web development and technology
-- Networking with fellow developers
-
-Don't hesitate to reach out!
+Open to freelance engagements, open-source collaboration, and a good conversation about distributed systems.

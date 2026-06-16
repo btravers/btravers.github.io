@@ -1,60 +1,66 @@
 /**
- * Customize default theme styling by overriding CSS variables:
+ * Theme overrides — see vitepress vars:
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
  */
 
-/**
- * Colors
+/* -----------------------------------------------------------------------------
+ * Brand colors — teal, tuned for AA contrast in both modes
  * -------------------------------------------------------------------------- */
 
 :root {
-  /* Brand colors - Teal theme matching the logo */
-  --vp-c-brand-1: #14b8a6;
+  --vp-c-brand-1: #0f766e;
   --vp-c-brand-2: #0d9488;
-  --vp-c-brand-3: #0f766e;
-  --vp-c-brand-soft: rgba(20, 184, 166, 0.14);
+  --vp-c-brand-3: #115e59;
+  --vp-c-brand-soft: rgba(15, 118, 110, 0.14);
 
-  /* Background colors */
-  --vp-c-bg-soft: #f6f6f7;
+  --vp-c-bg-soft: #f6f7f7;
 }
 
 .dark {
-  /* Dark mode brand colors */
   --vp-c-brand-1: #5eead4;
   --vp-c-brand-2: #2dd4bf;
   --vp-c-brand-3: #14b8a6;
-  --vp-c-brand-soft: rgba(20, 184, 166, 0.24);
+  --vp-c-brand-soft: rgba(45, 212, 191, 0.18);
 
-  /* Dark mode background colors */
   --vp-c-bg-soft: #202127;
 }
 
-/**
- * Component: Button
+/* -----------------------------------------------------------------------------
+ * Buttons
  * -------------------------------------------------------------------------- */
 
 :root {
   --vp-button-brand-border: transparent;
-  --vp-button-brand-text: var(--vp-c-white);
-  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-bg: var(--vp-c-brand-1);
   --vp-button-brand-hover-border: transparent;
-  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-text: #ffffff;
   --vp-button-brand-hover-bg: var(--vp-c-brand-2);
   --vp-button-brand-active-border: transparent;
-  --vp-button-brand-active-text: var(--vp-c-white);
-  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: var(--vp-c-brand-3);
 }
 
-/**
- * Component: Home
+.dark {
+  --vp-button-brand-text: #062b27;
+  --vp-button-brand-hover-text: #062b27;
+  --vp-button-brand-active-text: #062b27;
+}
+
+/* -----------------------------------------------------------------------------
+ * Home hero — gradient name + soft glow on the logo
  * -------------------------------------------------------------------------- */
 
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #0f766e 30%, #14b8a6);
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #0f766e 30%, #2dd4bf);
 
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #0f766e66 50%, #14b8a666 50%);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #0f766e55 50%, #2dd4bf55 50%);
   --vp-home-hero-image-filter: blur(44px);
+}
+
+.dark {
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #5eead4 30%, #14b8a6);
 }
 
 @media (min-width: 640px) {
@@ -69,62 +75,89 @@
   }
 }
 
-/**
- * Custom Enhancements
+/* Hero tagline tightening */
+.VPHero .tagline {
+  max-width: 36rem;
+  line-height: 1.55;
+}
+
+/* -----------------------------------------------------------------------------
+ * Document typography — restrained, readable
  * -------------------------------------------------------------------------- */
 
-/* Add subtle animations and better spacing */
+.vp-doc {
+  max-width: 760px;
+}
+
 .vp-doc h2 {
-  margin-top: 48px;
-  border-bottom: 2px solid var(--vp-c-brand-1);
-  padding-bottom: 8px;
+  margin-top: 56px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--vp-c-divider);
+  letter-spacing: -0.01em;
 }
 
 .vp-doc h3 {
-  margin-top: 32px;
-  color: var(--vp-c-brand-1);
+  margin-top: 36px;
+  letter-spacing: -0.005em;
 }
 
-/* Enhanced list styling */
+.vp-doc p {
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
 .vp-doc ul {
   padding-left: 1.5rem;
 }
 
 .vp-doc li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
   line-height: 1.7;
 }
 
-/* Add subtle hover effects to links */
+/* Inline emphasis — keep it readable; no full brand recolor on strong */
+.vp-doc strong {
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+}
+
+/* Inline links — always underlined for a11y, brand color on hover */
 .vp-doc a {
-  transition: color 0.2s ease;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--vp-c-brand-soft);
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
 }
 
 .vp-doc a:hover {
   color: var(--vp-c-brand-2);
+  text-decoration-color: var(--vp-c-brand-2);
 }
 
-/* Section dividers */
+/* Section dividers — thin and quiet */
 .vp-doc hr {
-  margin: 48px 0;
+  margin: 56px 0;
   border: none;
   border-top: 1px solid var(--vp-c-divider);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
-/* Better spacing for content sections */
-.vp-doc {
-  max-width: 800px;
+/* Slightly tighter blockquote */
+.vp-doc blockquote {
+  border-left: 3px solid var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  padding: 0.75rem 1rem;
+  border-radius: 0 6px 6px 0;
 }
 
-/* Enhanced paragraph spacing */
-.vp-doc p {
-  line-height: 1.8;
-  margin-bottom: 1rem;
+/* Logo: gentle motion on hover, no jank */
+.VPNavBarTitle .logo {
+  transition: transform 0.2s ease;
 }
 
-/* Styled strong text */
-.vp-doc strong {
-  color: var(--vp-c-brand-1);
-  font-weight: 600;
+.VPNavBarTitle:hover .logo {
+  transform: translateY(-1px);
 }
