@@ -121,16 +121,20 @@
   font-weight: 600;
 }
 
-/* Brand-accented inline links, subtle hover */
+/* Inline links — always underlined for a11y, brand color on hover */
 .vp-doc a {
-  text-decoration: none;
-  transition: color 0.15s ease, opacity 0.15s ease;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--vp-c-brand-soft);
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
 }
 
 .vp-doc a:hover {
   color: var(--vp-c-brand-2);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration-color: var(--vp-c-brand-2);
 }
 
 /* Section dividers — thin and quiet */

@@ -4,7 +4,7 @@ const SITE_URL = "https://btravers.github.io";
 const SITE_NAME = "Benoit TRAVERS";
 const DEFAULT_DESCRIPTION =
   "Freelance software engineer and architect specializing in distributed systems, backend development, and event-driven architectures.";
-const OG_IMAGE = `${SITE_URL}/logo.svg`;
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -79,19 +79,18 @@ export default defineConfig({
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:locale", content: "en_US" }],
     ["meta", { property: "og:image", content: OG_IMAGE }],
+    ["meta", { property: "og:image:width", content: "1200" }],
+    ["meta", { property: "og:image:height", content: "630" }],
+    ["meta", { property: "og:image:type", content: "image/png" }],
 
     // Twitter Card defaults
-    ["meta", { name: "twitter:card", content: "summary" }],
+    ["meta", { name: "twitter:card", content: "summary_large_image" }],
     ["meta", { name: "twitter:site", content: "@Benoit_Travers" }],
     ["meta", { name: "twitter:creator", content: "@Benoit_Travers" }],
     ["meta", { name: "twitter:image", content: OG_IMAGE }],
 
     // Person structured data
-    [
-      "script",
-      { type: "application/ld+json" },
-      JSON.stringify(personJsonLd),
-    ],
+    ["script", { type: "application/ld+json" }, JSON.stringify(personJsonLd)],
   ],
 
   transformHead({ pageData, siteData }) {
@@ -99,17 +98,11 @@ export default defineConfig({
 
     const title =
       pageData.frontmatter.title ??
-      (pageData.title
-        ? `${pageData.title} — ${SITE_NAME}`
-        : siteData.title);
+      (pageData.title ? `${pageData.title} — ${SITE_NAME}` : siteData.title);
     const description =
-      pageData.frontmatter.description ??
-      pageData.description ??
-      siteData.description;
+      pageData.frontmatter.description ?? pageData.description ?? siteData.description;
 
-    const relPath = pageData.relativePath
-      .replace(/index\.md$/, "")
-      .replace(/\.md$/, "");
+    const relPath = pageData.relativePath.replace(/index\.md$/, "").replace(/\.md$/, "");
     const url = `${SITE_URL}/${relPath}`;
 
     tags.push(

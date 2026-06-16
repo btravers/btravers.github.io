@@ -67,7 +67,7 @@ Consultant at Zenika, an international tech consultancy. Delivered software acro
 
 ---
 
-## Contact {#contact}
+## Contact
 
 The best ways to reach me:
 
