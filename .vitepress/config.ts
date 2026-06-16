@@ -5,6 +5,10 @@ export default defineConfig({
   description: "Personal website",
   base: "/",
 
+  sitemap: {
+    hostname: "https://btravers.github.io/",
+  },
+
   themeConfig: {
     logo: "/logo.svg",
 
