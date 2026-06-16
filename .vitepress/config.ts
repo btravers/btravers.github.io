@@ -25,5 +25,14 @@ export default defineConfig({
     },
   },
 
-  head: [["link", { rel: "icon", type: "image/svg+xml", href: "/logo.svg" }]],
+  head: [
+    ["link", { rel: "icon", type: "image/svg+xml", href: "/logo.svg" }],
+    [
+      "meta",
+      {
+        name: "google-site-verification",
+        content: "u6ZPW5bWbP9G1yF5Sv7B4fSOJm5rLbZWeH858tmisTc",
+      },
+    ],
+  ],
 });
